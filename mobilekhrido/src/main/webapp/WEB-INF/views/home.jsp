@@ -4,12 +4,7 @@
 
         <div class="col-lg-3">
 
-          <h4 class="my-4">Mobile Collection</h4>
-          <div class="list-group">
-            <a href="#" class="list-group-item">Category 1</a>
-            <a href="#" class="list-group-item">Category 2</a>
-            <a href="#" class="list-group-item">Category 3</a>
-          </div>
+         <%@ include file="./shared/sideBar.jsp" %>
 
         </div>
         <!-- /.col-lg-3 -->
