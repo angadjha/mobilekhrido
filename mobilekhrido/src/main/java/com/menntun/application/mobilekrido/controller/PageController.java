@@ -9,9 +9,25 @@ public class PageController {
 
 	@RequestMapping(value = {"/", "/home", "/index"})
 	public ModelAndView index(){
-		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("greeting", "Welcome to SPring MVC");
-		return mv;
-		
+		ModelAndView model = new ModelAndView("page");
+		model.addObject("title", "Home");
+		model.addObject("userClickedHome", true);
+		return model;
+	}
+	
+	@RequestMapping(value = "/about")
+	public ModelAndView about(){
+		ModelAndView model = new ModelAndView("page");
+		model.addObject("title", "About Us");
+		model.addObject("userClickedAbout", true);
+		return model;
+	}
+	
+	@RequestMapping(value = "/contact")
+	public ModelAndView contact(){
+		ModelAndView model = new ModelAndView("page");
+		model.addObject("title", "Contact Us");
+		model.addObject("userClickedContact", true);
+		return model;
 	}
 }
