@@ -2,10 +2,12 @@ package com.menntun.application.mobilekrido.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.menntun.application.mobilekhridobackend.dao.CategoryDao;
+import com.menntun.application.mobilekhridobackend.dto.Category;
 
 @Controller
 public class PageController {
@@ -37,4 +39,39 @@ public class PageController {
 		model.addObject("userClickedContact", true);
 		return model;
 	}
+	
+	@RequestMapping(value = "/show/all/products")
+	public ModelAndView showAllCategories(){
+		ModelAndView model = new ModelAndView("page");
+		model.addObject("title", "All Products");
+		model.addObject("categories", categoryDao.listOfCateory());
+		model.addObject("userClickedAllProducts", true);
+		return model;
+	}
+	
+	@RequestMapping(value = "/show/category/{id}/products")
+	public ModelAndView showCategoriesProduct(@PathVariable("id") int id){
+		ModelAndView model = new ModelAndView("page");
+		Category category = null;
+		category = categoryDao.get(id);
+		model.addObject("title", category.getName());
+		model.addObject("categories", categoryDao.listOfCateory());
+		model.addObject("category", category);
+		model.addObject("userClickedCategoryProducts", true);
+		return model;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

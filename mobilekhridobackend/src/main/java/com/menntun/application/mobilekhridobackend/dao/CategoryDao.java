@@ -8,4 +8,6 @@ import com.menntun.application.mobilekhridobackend.dto.Category;
 public interface CategoryDao {
 
 	List<Category> listOfCateory();
+
+	Category get(int id);
 }
